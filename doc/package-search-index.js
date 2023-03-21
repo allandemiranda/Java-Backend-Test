@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.king"},{"l":"com.king.configuration"},{"l":"com.king.controller"},{"l":"com.king.exception"},{"l":"com.king.model"},{"l":"com.king.view"}];updateSearchResults();
