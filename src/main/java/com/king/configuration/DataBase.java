@@ -35,7 +35,7 @@ public final class DataBase {
    *
    * @apiNote userModel and level will be unique
    */
-  public static void addScore(UserModel userModel, int level, int points) throws BadRequestException, InternalServerErrorException {
+  public static synchronized void addScore(UserModel userModel, int level, int points) throws BadRequestException, InternalServerErrorException {
     try {
       var data = new ScoreModel(userModel, level, points);
       table.remove(data);
@@ -53,7 +53,7 @@ public final class DataBase {
    * @param level the level
    * @return the level data limited in 15 row
    */
-  public static Map<Integer, Integer> getLevelData(int level) {
+  public static synchronized Map<Integer, Integer> getLevelData(int level) {
     return table.stream()
       .filter(scoreModel -> level == scoreModel.level())
       .sorted(Comparator.comparingInt(ScoreModel::score).reversed())
